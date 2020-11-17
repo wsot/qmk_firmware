@@ -24,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
     * |LSH   |Z     |X     |C     |V     |B     |SYM   |                                        |   SYM|     N|     M|     ,|     .|     /|   RSH| *
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
-    * |SYM/= |LCTL  |LGUI  |LALT  |ARROW/STEN  |                                                          |ARROW/STEN|  RALT|  RGUI|  RTCL|   SYM| *
+    * |SYM/= |LCTL  |LGUI  |LALT  |ARROW |                                                                    | ARROW|  RALT|  RGUI|  RTCL|   SYM| *
     * `-----------------------------------                                                                    -----------------------------------` *
     *                                                   |---------------|      |---------------|                                                   *
     *                                                   |<-     |UP     |      |    DWN|     ->|                                                   *
@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LCBR,
         KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_LBRACKET,
         KC_LSHIFT, KC_Z, KC_X, KC_C, KC_V, KC_B, TT(_SYMBOL),
-        LT(_SYMBOL, KC_EQL), KC_LCTL, KC_LGUI, KC_LALT, LT(_ARROWS, TG(_STENO)),
+        LT(_SYMBOL, KC_EQL), KC_LCTL, KC_LGUI, KC_LALT, TT(_ARROWS),
                                                                             KC_LEFT, KC_UP,
                                                                     KC_BSPC, KC_DEL, KC_HOME,
                                                                     KC_LSHIFT, SH_MON, KC_END,
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_RCBR, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSLASH,
     KC_RBRACKET, KC_H, KC_J, KC_K, KC_L, KC_SCOLON, KC_QUOT,
     TT(_SYMBOL), KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_RSHIFT,
-                       LT(_ARROWS, TG(_STENO)), KC_RALT, KC_RGUI, KC_RCTL, LT(_SYMBOL, KC_EQL),
+                       TT(_ARROWS), KC_RALT, KC_RGUI, KC_RCTL, LT(_SYMBOL, KC_EQL),
 KC_DOWN, KC_RIGHT,
 KC_PGUP, KC_ENTER, KC_SPC,
 KC_PGDN, SH_MON, KC_RSHIFT),
@@ -162,12 +162,32 @@ KC_TRNS, KC_TRNS,
 KC_TRNS, KC_TRNS, KC_TRNS,
 KC_TRNS, KC_TRNS, KC_TRNS),
 
+    /* Arrow
+    * ,------------------------------------------------|                                        |------------------------------------------------, *
+    * |      |      |      |      |      |      |      |                                        |      |      |      |      |      |      |      | *
+    * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
+    * |      |      |UP    |      |      |      |      |                                        |      |      |      |      |    UP|      |      | *
+    * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
+    * |      |LEFT  |DOWN  |RIGHT |      |      |      |                                        |      |      |      |  LEFT|  DOWN| RIGHT|      | *
+    * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
+    * |      |      |      |      |      |      |      |                                        |      |      |      |      |      |      |      | *
+    * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
+    * |STENO |      |      |      |      |                                                                    |      |      |      |      | STENO| *
+    * `-----------------------------------                                                                    -----------------------------------` *
+    *                                                   |---------------|      |---------------|                                                   *
+    *                                                   |       |       |      |       |       |                                                   *
+    *                                           ,-------+-------+-------|      |-------+-------+-------,                                           *
+    *                                           |       |       |       |      |       |       |       |                                           *
+    *                                           |       |       |-------|      |-------|       |       |                                           *
+    *                                           |-------+-------|       |      |       |-------+-------|                                           *
+    *                                           |       |       |-------|      |-------|       |       |                                           *
+    *                                           |-------+-------+                      +-------+-------|                                           */
     [_ARROWS] = KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_UP, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        TG(_STENO), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 
                                                                              KC_TRNS, KC_TRNS,
                                                                     KC_TRNS, KC_TRNS, KC_TRNS,
@@ -176,7 +196,7 @@ KC_TRNS, KC_TRNS, KC_TRNS),
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_UP, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(_STENO),
 
 KC_TRNS, KC_TRNS,
 KC_TRNS, KC_TRNS, KC_TRNS,
@@ -202,3 +222,24 @@ KC_TRNS, KC_TRNS, KC_TRNS)
 // KC_TRNS, KC_TRNS,
 // KC_TRNS, KC_TRNS, KC_TRNS,
 // KC_TRNS, KC_TRNS, KC_TRNS)
+
+    /* Arrow
+    * ,------------------------------------------------|                                        |------------------------------------------------, *
+    * |      |      |      |      |      |      |      |                                        |      |      |      |      |      |      |      | *
+    * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
+    * |      |      |      |      |      |      |      |                                        |      |      |      |      |      |      |      | *
+    * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
+    * |      |      |      |      |      |      |      |                                        |      |      |      |      |      |      |      | *
+    * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
+    * |      |      |      |      |      |      |      |                                        |      |      |      |      |      |      |      | *
+    * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
+    * |      |      |      |      |      |                                                                    |      |      |      |      |      | *
+    * `-----------------------------------                                                                    -----------------------------------` *
+    *                                                   |---------------|      |---------------|                                                   *
+    *                                                   |       |       |      |       |       |                                                   *
+    *                                           ,-------+-------+-------|      |-------+-------+-------,                                           *
+    *                                           |       |       |       |      |       |       |       |                                           *
+    *                                           |       |       |-------|      |-------|       |       |                                           *
+    *                                           |-------+-------|       |      |       |-------+-------|                                           *
+    *                                           |       |       |-------|      |-------|       |       |                                           *
+    *                                           |-------+-------+                      +-------+-------|                                           */
