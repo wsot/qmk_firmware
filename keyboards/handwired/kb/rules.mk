@@ -22,3 +22,5 @@ FAUXCLICKY_ENABLE = no      # Use buzzer to emulate clicky switches
 NO_SUSPEND_POWER_DOWN = yes
 UNICODEMAP_ENABLE = no
 SWAP_HANDS_ENABLE = yes
+
+# WS2812_DRIVER = spi

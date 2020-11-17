@@ -7,6 +7,7 @@ enum layers {
   _PLOVER,
   _STENO,
   _SYMBOL,
+  _ARROWS,
 };
 
 #define ST_BOLT QK_STENO_BOLT
@@ -15,7 +16,7 @@ enum layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Qwerty
     * ,------------------------------------------------|                                        |------------------------------------------------, *
-    * |=     |1     |2     |3     |4     |5     |SYM   |                                        |   DVO|     6|     7|     8|     9|     0|     -| *
+    * |`     |1     |2     |3     |4     |5     |SYM   |                                        |   DVO|     6|     7|     8|     9|     0|     -| *
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
     * |TAB   |Q     |W     |E     |R     |T     |{     |                                        |     }|     Y|     U|     I|     O|     P|     \| *
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
@@ -23,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
     * |LSH   |Z     |X     |C     |V     |B     |SYM   |                                        |   SYM|     N|     M|     ,|     .|     /|   RSH| *
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
-    * |SYM/` |LCTL  |LGUI  |LALT  |STEN  |                                                                    |      |  RALT|  RGUI|  RTCL|   SYM| *
+    * |SYM/= |LCTL  |LGUI  |LALT  |ARROW/STEN  |                                                          |ARROW/STEN|  RALT|  RGUI|  RTCL|   SYM| *
     * `-----------------------------------                                                                    -----------------------------------` *
     *                                                   |---------------|      |---------------|                                                   *
     *                                                   |<-     |UP     |      |    DWN|     ->|                                                   *
@@ -35,11 +36,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     *                                           |-------+-------+                      +-------+-------|                                           *
     */
     [_QWERTY] = KEYMAP(
-        KC_EQL, KC_1, KC_2, KC_3, KC_4, KC_5, TG(_SYMBOL),
+        KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, TG(_SYMBOL),
         KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_LCBR,
         KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_LBRACKET,
         KC_LSHIFT, KC_Z, KC_X, KC_C, KC_V, KC_B, TT(_SYMBOL),
-        LT(_SYMBOL, KC_GRV), KC_LCTL, KC_LGUI, KC_LALT, TG(_STENO),
+        LT(_SYMBOL, KC_EQL), KC_LCTL, KC_LGUI, KC_LALT, LT(_ARROWS, TG(_STENO)),
                                                                             KC_LEFT, KC_UP,
                                                                     KC_BSPC, KC_DEL, KC_HOME,
                                                                     KC_LSHIFT, SH_MON, KC_END,
@@ -47,10 +48,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_RCBR, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSLASH,
     KC_RBRACKET, KC_H, KC_J, KC_K, KC_L, KC_SCOLON, KC_QUOT,
     TT(_SYMBOL), KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_RSHIFT,
-                       KC_NO, KC_RALT, KC_RGUI, KC_RCTL, TT(_SYMBOL),
+                       LT(_ARROWS, TG(_STENO)), KC_RALT, KC_RGUI, KC_RCTL, LT(_SYMBOL, KC_EQL),
 KC_DOWN, KC_RIGHT,
 KC_PGUP, KC_ENTER, KC_SPC,
-KC_PGDN, KC_RSHIFT, SH_MON),
+KC_PGDN, SH_MON, KC_RSHIFT),
 
     [_DVORAK] = KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -159,6 +160,45 @@ KC_TRNS, STN_E, STN_U),
 
 KC_TRNS, KC_TRNS,
 KC_TRNS, KC_TRNS, KC_TRNS,
-KC_TRNS, KC_TRNS, KC_TRNS)
+KC_TRNS, KC_TRNS, KC_TRNS),
 
+    [_ARROWS] = KEYMAP(
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_UP, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+
+                                                                             KC_TRNS, KC_TRNS,
+                                                                    KC_TRNS, KC_TRNS, KC_TRNS,
+                                                                    KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_UP, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+
+KC_TRNS, KC_TRNS,
+KC_TRNS, KC_TRNS, KC_TRNS,
+KC_TRNS, KC_TRNS, KC_TRNS)
 };
+
+//     [_XYZ] = KEYMAP(
+//         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+//         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+//         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+//         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+//         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+
+//                                                                              KC_TRNS, KC_TRNS,
+//                                                                     KC_TRNS, KC_TRNS, KC_TRNS,
+//                                                                     KC_TRNS, KC_TRNS, KC_TRNS,
+//         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+//         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+//         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+//         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+//                                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+
+// KC_TRNS, KC_TRNS,
+// KC_TRNS, KC_TRNS, KC_TRNS,
+// KC_TRNS, KC_TRNS, KC_TRNS)
