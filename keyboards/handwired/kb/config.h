@@ -30,3 +30,25 @@
 
 #define WS2812_SPI SPID1 // default: SPID1
 #define WS2812_SPI_MOSI_PAL_MODE 5 // Pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 5
+
+
+#define MK_3_SPEED true
+#define MK_MOMENTARY_ACCEL true
+
+#define MOUSEKEY_DELAY 50 // Delay between pressing a movement key and cursor movement, default=300
+#define MOUSEKEY_INTERVAL 16 // Time between cursor movements, default=50
+#define MOUSEKEY_TIME_TO_MAX 20 // Time until maximum cursor speed is reached, default=20
+#define MOUSEKEY_WHEEL_DELAY 300 // Delay between pressing a wheel key and wheel movement, default=300
+#define MOUSEKEY_WHEEL_INTERVAL 100 // Time between wheel movements, default=100
+#define MOUSEKEY_WHEEL_MAX_SPEED 8 // Maximum number of scroll steps per scroll action, default=8
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 40 // Time until maximum scroll speed is reached, default=40
+
+
+#define MK_C_OFFSET_UNMOD 16
+#define MK_C_INTERVAL_UNMOD 16
+#define MK_C_OFFSET_0 1
+#define MK_C_INTERVAL_0 16
+#define MK_C_OFFSET_1 4
+#define MK_C_INTERVAL_1 16
+#define MK_C_OFFSET_2 32
+#define MK_C_INTERVAL_2 16

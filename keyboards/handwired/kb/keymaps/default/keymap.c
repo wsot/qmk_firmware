@@ -8,6 +8,7 @@ enum layers {
   _STENO,
   _SYMBOL,
   _ARROWS,
+  _MOUSE,
 };
 
 #define ST_BOLT QK_STENO_BOLT
@@ -107,7 +108,7 @@ KC_TRNS, KC_N, KC_M),
         ST_BOLT, STN_N1, STN_N2, STN_N3, STN_N4, STN_N5, KC_TRNS,
         KC_TRNS, STN_S1, STN_TL, STN_PL, STN_HL, STN_ST1, KC_TRNS,
         KC_TRNS, STN_S2, STN_KL, STN_WL, STN_RL, STN_ST2, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, STN_A, STN_O,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  STN_A, STN_O, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                                                             STN_A, STN_O,
                                                                     KC_TRNS, KC_TRNS, KC_TRNS,
@@ -115,7 +116,7 @@ KC_TRNS, KC_N, KC_M),
         KC_TRNS, STN_N6, STN_N7, STN_N8, STN_N9, KC_TRNS, QK_STENO_GEMINI,
         KC_TRNS, STN_ST3, STN_FR, STN_PR, STN_LR, STN_TR, STN_DR,
         KC_TRNS, STN_ST4, STN_RR, STN_BR, STN_GR, STN_SR, STN_ZR,
-        STN_E, STN_U, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, STN_E, STN_U, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 
 STN_E, STN_U,
@@ -170,7 +171,7 @@ KC_TRNS, KC_TRNS, KC_TRNS),
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
     * |      |LEFT  |DOWN  |RIGHT |      |      |      |                                        |      |      |      |  LEFT|  DOWN| RIGHT|      | *
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
-    * |      |      |      |      |      |      |      |                                        |      |      |      |      |      |      |      | *
+    * |MOUSE |      |      |      |      |      |      |                                        |      |      |      |      |      |      | MOUSE| *
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
     * |STENO |      |      |      |      |                                                                    |      |      |      |      | STENO| *
     * `-----------------------------------                                                                    -----------------------------------` *
@@ -186,7 +187,7 @@ KC_TRNS, KC_TRNS, KC_TRNS),
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_UP, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        TT(_MOUSE), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         TG(_STENO), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 
                                                                              KC_TRNS, KC_TRNS,
@@ -195,8 +196,49 @@ KC_TRNS, KC_TRNS, KC_TRNS),
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_UP, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TT(_MOUSE),
                           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(_STENO),
+
+KC_TRNS, KC_TRNS,
+KC_TRNS, KC_TRNS, KC_TRNS,
+KC_TRNS, KC_TRNS, KC_TRNS),
+
+    /* Mouse
+    * ,------------------------------------------------|                                        |------------------------------------------------, *
+    * |      |      |      |      |      |      |      |                                        |      |      |      |      |      |      |      | *
+    * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
+    * |      |MS_B1 |MS_UP |ACCEL0|ACCEL1|ACCEL2|      |                                        |      |ACCEL2|ACCEL1|ACCEL0| MS_UP| MS_B1|      | *
+    * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
+    * |      |MS_LFT|MS_DWN|MS_RT | MS_B2|      |      |                                        |      |      | MS_B2|MS_DWN| MS_B1| MS_RT|      | *
+    * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
+    * |      |      |      |      |      |      |                                        |      |      |      |      |      |      |      | *
+    * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
+    * |      |      |      |      |      |                                                                    |      |      |      |      |      | *
+    * `-----------------------------------                                                                    -----------------------------------` *
+    *                                                   |---------------|      |---------------|                                                   *
+    *                                                   |       |       |      |       |       |                                                   *
+    *                                           ,-------+-------+-------|      |-------+-------+-------,                                           *
+    *                                           |       |       |       |      |       |       |       |                                           *
+    *                                           |       |       |-------|      |-------|       |       |                                           *
+    *                                           |-------+-------|       |      |       |-------+-------|                                           *
+    *                                           |       |       |-------|      |-------|       |       |                                           *
+    *                                           |-------+-------+                      +-------+-------|                                           */
+
+    [_MOUSE] = KEYMAP(
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_MS_BTN1, KC_MS_UP, KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, KC_TRNS,
+        KC_TRNS, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_MS_BTN2, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+
+                                                                             KC_TRNS, KC_TRNS,
+                                                                    KC_TRNS, KC_TRNS, KC_TRNS,
+                                                                    KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_MS_ACCEL2, KC_MS_ACCEL1, KC_MS_ACCEL0, KC_MS_UP, KC_MS_BTN1, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_MS_BTN2, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 
 KC_TRNS, KC_TRNS,
 KC_TRNS, KC_TRNS, KC_TRNS,
