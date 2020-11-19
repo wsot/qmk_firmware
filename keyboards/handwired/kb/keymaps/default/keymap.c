@@ -207,11 +207,11 @@ KC_TRNS, KC_TRNS, KC_TRNS),
     * ,------------------------------------------------|                                        |------------------------------------------------, *
     * |      |      |      |      |      |      |      |                                        |      |      |      |      |      |      |      | *
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
-    * |      |MS_B1 |MS_UP |ACCEL0|ACCEL1|ACCEL2|      |                                        |      |ACCEL2|ACCEL1|ACCEL0| MS_UP| MS_B1|      | *
+    * |      |MS_B1 |MS_UP |ACCEL0|ACCEL1|ACCEL2| WH_UP|                                        | WH_UP|ACCEL2|ACCEL1|ACCEL0| MS_UP| MS_B1|      | *
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
-    * |      |MS_LFT|MS_DWN|MS_RT | MS_B2|      |      |                                        |      |      | MS_B2|MS_DWN| MS_B1| MS_RT|      | *
+    * |      |MS_LFT|MS_DWN|MS_RT |MS_B2 |      |WH_DWN|                                        |WH_DWN|      | MS_B2|MS_DWN| MS_B1| MS_RT|      | *
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
-    * |      |      |      |      |      |      |                                        |      |      |      |      |      |      |      | *
+    * |      |      |      |      |      |      |                                               |      |      |      |      |      |      |      | *
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
     * |      |      |      |      |      |                                                                    |      |      |      |      |      | *
     * `-----------------------------------                                                                    -----------------------------------` *
@@ -226,8 +226,8 @@ KC_TRNS, KC_TRNS, KC_TRNS),
 
     [_MOUSE] = KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_MS_BTN1, KC_MS_UP, KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, KC_TRNS,
-        KC_TRNS, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_MS_BTN2, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_MS_BTN1, KC_MS_UP, KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, KC_MS_WH_UP,
+        KC_TRNS, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_MS_BTN2, KC_TRNS, KC_MS_WH_DOWN,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 
@@ -235,8 +235,8 @@ KC_TRNS, KC_TRNS, KC_TRNS),
                                                                     KC_TRNS, KC_TRNS, KC_TRNS,
                                                                     KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_MS_ACCEL2, KC_MS_ACCEL1, KC_MS_ACCEL0, KC_MS_UP, KC_MS_BTN1, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_MS_BTN2, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_TRNS,
+        KC_MS_WH_UP, KC_MS_ACCEL2, KC_MS_ACCEL1, KC_MS_ACCEL0, KC_MS_UP, KC_MS_BTN1, KC_TRNS,
+        KC_MS_WH_DOWN, KC_TRNS, KC_MS_BTN2, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 
