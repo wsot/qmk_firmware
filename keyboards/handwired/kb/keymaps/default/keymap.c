@@ -28,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * |SYM/= |LCTL  |LGUI  |LALT  |ARROW |                                                                    | ARROW|  RALT|  RGUI|  RTCL|   SYM| *
     * `-----------------------------------                                                                    -----------------------------------` *
     *                                                   |---------------|      |---------------|                                                   *
-    *                                                   |<-     |UP     |      |    DWN|     ->|                                                   *
+    *                                                   |<-     |DOWN   |      |     UP|     ->|                                                   *
     *                                           ,-------+-------+-------|      |-------+-------+-------,                                           *
     *                                           |BSP    |DEL    |HOME   |      |   PGUP|  ENTER|    SPC|                                           *
     *                                           |       |       |-------|      |-------|       |       |                                           *
@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_LBRACKET,
         KC_LSHIFT, KC_Z, KC_X, KC_C, KC_V, KC_B, TT(_SYMBOL),
         LT(_SYMBOL, KC_EQL), KC_LCTL, KC_LGUI, KC_LALT, TT(_ARROWS),
-                                                                            KC_LEFT, KC_UP,
+                                                                            KC_LEFT, KC_DOWN,
                                                                     KC_BSPC, KC_DEL, KC_HOME,
                                                                     KC_LSHIFT, SH_MON, KC_END,
     TG(_DVORAK), KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINUS,
@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_RBRACKET, KC_H, KC_J, KC_K, KC_L, KC_SCOLON, KC_QUOT,
     TT(_SYMBOL), KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_RSHIFT,
                        TT(_ARROWS), KC_RALT, KC_RGUI, KC_RCTL, LT(_SYMBOL, KC_EQL),
-KC_DOWN, KC_RIGHT,
+KC_UP, KC_RIGHT,
 KC_PGUP, KC_ENTER, KC_SPC,
 KC_PGDN, SH_MON, KC_RSHIFT),
 
@@ -169,9 +169,9 @@ KC_TRNS, KC_TRNS, KC_TRNS),
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
     * |      |      |UP    |      |      |      |      |                                        |      |      |      |      |    UP|      |      | *
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
-    * |      |LEFT  |DOWN  |RIGHT |      |      |      |                                        |      |      |      |  LEFT|  DOWN| RIGHT|      | *
+    * |MOUSE |LEFT  |DOWN  |RIGHT |      |      |      |                                        |      |      |      |  LEFT|  DOWN| RIGHT| MOUSE| *
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
-    * |MOUSE |      |      |      |      |      |      |                                        |      |      |      |      |      |      | MOUSE| *
+    * |      |      |      |      |      |      |      |                                        |      |      |      |      |      |      |      | *
     * |------+------+------+------+------+------+------|                                        |------+------+------+------+------+------+------| *
     * |STENO |      |      |      |      |                                                                    |      |      |      |      | STENO| *
     * `-----------------------------------                                                                    -----------------------------------` *
@@ -186,8 +186,8 @@ KC_TRNS, KC_TRNS, KC_TRNS),
     [_ARROWS] = KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_UP, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS, KC_TRNS, KC_TRNS,
-        TT(_MOUSE), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        TT(_MOUSE), KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         TG(_STENO), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 
                                                                              KC_TRNS, KC_TRNS,
@@ -195,8 +195,8 @@ KC_TRNS, KC_TRNS, KC_TRNS),
                                                                     KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_UP, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TT(_MOUSE),
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, TT(_MOUSE),
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TG(_STENO),
 
 KC_TRNS, KC_TRNS,
