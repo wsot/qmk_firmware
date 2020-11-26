@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     *                                                   |---------------|      |---------------|                                                   *
     *                                                   |<-     |DOWN   |      |     UP|     ->|                                                   *
     *                                           ,-------+-------+-------|      |-------+-------+-------,                                           *
-    *                                           |SYM/BSP|DEL    |HOME   |      |   PGUP|  ENTER|SYM/SPC|                                           *
+    *                                           |BSP    |DEL    |HOME   |      |   PGUP|  ENTER|SYM/SPC|                                           *
     *                                           |       |       |-------|      |-------|       |       |                                           *
     *                                           |-------+-------|END    |      |   PGDN|-------+-------|                                           *
     *                                           |LSH    |SWAP   |-------|      |-------|   SWAP|    RSH|                                           *
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSHIFT, KC_Z, KC_X, KC_C, KC_V, KC_B, TT(_SYMBOL),
         LT(_SYMBOL, KC_EQL), KC_LCTL, KC_LGUI, KC_LALT, TT(_ARROWS),
                                                                             KC_LEFT, KC_DOWN,
-                                                                    LT(_SYMBOL, KC_BSPC), KC_DEL, KC_HOME,
+                                                                    KC_BSPC, KC_DEL, KC_HOME,
                                                                     KC_LSHIFT, SH_MON, KC_END,
     TG(_DVORAK), KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINUS,
     KC_RCBR, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSLASH,

@@ -62,3 +62,5 @@
 #define MK_W_INTERVAL_1 120 // Time between scroll steps (KC_ACL1), default=120
 #define MK_W_OFFSET_2 1 // Scroll steps per scroll action (KC_ACL2), default=1
 #define MK_W_INTERVAL_2 20 // Time between scroll steps (KC_ACL2), default=20
+
+#define PERMISSIVE_HOLD true // Don't give me that wait time with LT plz
